@@ -13,7 +13,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Fully Client-Side Chat Over Documents</title>
+        <title>Fully Client-Side Chat </title>
         <link rel="shortcut icon" href="/images/favicon.ico" />
         <meta
           name="description"
@@ -21,7 +21,7 @@ export default function RootLayout({
         />
         <meta
           property="og:title"
-          content="Fully Client-Side Chat Over Documents"
+          content="Fully Client-Side Chat"
         />
         <meta
           property="og:description"
@@ -33,7 +33,7 @@ export default function RootLayout({
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Fully Client-Side Chat Over Documents"
+          content="Fully Client-Side Chat"
         />
         <meta
           name="twitter:description"
