@@ -118,7 +118,7 @@ export function ChatWindow(props: {
 
   const chatInterfaceComponent = (
     <>
-      <div className="flex flex-col-reverse w-full mb-4 overflow-auto grow">
+      <div className="flex flex-col-reverse w-full mb-4 overflow-auto grow border p-4">
         {messages.length > 0 ? (
           [...messages]
             .reverse()
