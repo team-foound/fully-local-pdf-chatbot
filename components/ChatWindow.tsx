@@ -17,9 +17,9 @@ export function ChatWindow(props: {
   const { placeholder, titleText = "An LLM", emoji } = props;
   const [messages, setMessages] = useState<ChatWindowMessage[]>([]);
   const [input, setInput] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [selectedPDF, setSelectedPDF] = useState<File | null>(null);
-  const [readyToChat, setReadyToChat] = useState(false);
+  const [readyToChat, setReadyToChat] = useState(true);
 
   const worker = useRef<Worker | null>(null);
 
