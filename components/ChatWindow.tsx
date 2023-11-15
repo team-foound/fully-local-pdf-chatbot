@@ -156,14 +156,14 @@ export function ChatWindow(props: {
   return (
     <div className={`flex flex-col items-center p-4 md:p-8 rounded grow overflow-hidden border)}`}>
       <h2 className={`text-2xl`}>{emoji} {titleText}</h2>
-      <h3>
+      <code>
       OLLAMA_ORIGINS=https://fully-local-pdf-chatbot-alpha.vercel.app OLLAMA_HOST=127.0.0.1:11435 ollama serve
-      </h3>
-      <h3>
+      </code>
+      <code>
       OLLAMA_HOST=127.0.0.1:11435 ollama pull mistral
-      </h3>
+      </code>
 
-      
+
       {chatInterfaceComponent
          }
 
