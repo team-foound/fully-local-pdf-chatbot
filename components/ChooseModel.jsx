@@ -36,11 +36,13 @@ export default function ChooseModel(props) {
           <MenuItem value="mistral">mistral</MenuItem>
           <MenuItem value="llama2">llama2</MenuItem>
           <MenuItem value="codellama">codellama</MenuItem>
+          {/*
           <MenuItem value="llama2-uncensored">llama2-uncensored</MenuItem>
           <MenuItem value="llama2:13b">llama2:13b</MenuItem>
           <MenuItem value="llama2:70b">llama2:70b</MenuItem>
           <MenuItem value="orca-mini">orca-mini</MenuItem>
           <MenuItem value="vicuna">vicuna</MenuItem>
+  */}
         </Select>
       </FormControl>
     </Box>

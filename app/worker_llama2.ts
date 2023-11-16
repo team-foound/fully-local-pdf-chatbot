@@ -6,7 +6,7 @@ import { StringOutputParser } from "langchain/schema/output_parser";
 const ollama = new ChatOllama({
   baseUrl: "http://localhost:11435",
   temperature: 0.3,
-  model: "mistral",
+  model: "lamma2",
 });
 
 const queryVectorStore = async (messages: ChatWindowMessage[]) => {

@@ -111,9 +111,21 @@ export function ChatWindow(props: {
       // Create the worker if it does not yet exist.
       const path = '../app/worker_'+model+'.ts';
       console.log(path);
-      worker.current = new Worker(new URL(path, import.meta.url), {
-        type: 'module',
-      });
+      if(model === 'mistral') {
+        worker.current = new Worker(new URL('../app/worker_mistral.ts', import.meta.url), {
+          type: 'module',
+        });   
+      }
+      else if(model === 'llama2') {
+        worker.current = new Worker(new URL('../app/worker_llama2.ts', import.meta.url), {
+          type: 'module',
+        });   
+      }
+      else if(model === 'codellama') {
+        worker.current = new Worker(new URL('../app/worker_codellama.ts', import.meta.url), {
+          type: 'module',
+        });   
+      }
       setIsLoading(false);
     }
   }, []);
