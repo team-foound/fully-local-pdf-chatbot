@@ -109,7 +109,9 @@ export function ChatWindow(props: {
   useEffect(() => {
     if (!worker.current) {
       // Create the worker if it does not yet exist.
-      worker.current = new Worker(new URL('../app/worker.ts', import.meta.url), {
+      const path = '../app/worker_'+model+'.ts';
+      console.log(path);
+      worker.current = new Worker(new URL(path, import.meta.url), {
         type: 'module',
       });
       setIsLoading(false);
