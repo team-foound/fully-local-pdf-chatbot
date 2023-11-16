@@ -13,8 +13,9 @@ export function ChatWindow(props: {
   placeholder?: string,
   titleText?: string,
   emoji?: string;
+  model?: string;
 }) {
-  const { placeholder, titleText = "An LLM", emoji } = props;
+  const { model, placeholder, titleText = "An LLM", emoji } = props;
   const [messages, setMessages] = useState<ChatWindowMessage[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -157,15 +158,14 @@ export function ChatWindow(props: {
     <div className={`flex flex-col items-center p-4 md:p-8 rounded grow overflow-hidden border)}`}>
       <h2 className={`text-2xl`}>{emoji} {titleText}</h2>
       <code>
-      OLLAMA_ORIGINS=https://fully-local-pdf-chatbot-alpha.vercel.app OLLAMA_HOST=127.0.0.1:11435 ollama serve
+      OLLAMA_ORIGINS=https://fully-local-pdf-chatbot-alpha.vercel.app OLLAMA_HOST=127.0.0.1:11435 {model} serve
       </code>
       <code>
-      OLLAMA_HOST=127.0.0.1:11435 ollama pull mistral
+      OLLAMA_HOST=127.0.0.1:11435 ollama pull {model}
       </code>
 
 
-      {chatInterfaceComponent
-         }
+      {chatInterfaceComponent}
 
       <ToastContainer/>
     </div>
