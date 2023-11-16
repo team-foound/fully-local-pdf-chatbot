@@ -1,8 +1,6 @@
 import { ChatWindowMessage } from "@/schema/ChatWindowMessage";
 import { ChatOllama } from "langchain/chat_models/ollama";
-import {
-  PromptTemplate,ChatPromptTemplate
-} from "langchain/prompts";
+import { PromptTemplate, ChatPromptTemplate } from "langchain/prompts";
 import { StringOutputParser } from "langchain/schema/output_parser";
 
 const ollama = new ChatOllama({
@@ -11,29 +9,18 @@ const ollama = new ChatOllama({
   model: "mistral",
 });
 
-
-
 const queryVectorStore = async (messages: ChatWindowMessage[]) => {
-
   const text = messages[messages.length - 1].content;
   const outputParser = new StringOutputParser();
 
+  const llmResult = await ollama.predict(text);
 
+  self.postMessage({
+    type: "chunk",
+    data: llmResult,
+  });
 
-const llmResult = await ollama.predict(text);
-
-
-self.postMessage({
-  type: "chunk",
-  data: llmResult,
-});
-
-
-console.log(llmResult);
-
-
-
-
+  console.log(llmResult);
 
   /*
   
@@ -61,7 +48,7 @@ console.log(llmResult);
     data: "OK",
   });
 */
-/*
+  /*
   const systemTemplate =
   "You are a helpful assistant that translates {input_language} to {output_language}.";
 const humanTemplate = "{text}";
@@ -107,9 +94,6 @@ const chatPrompt = ChatPromptTemplate.fromMessages([
     data: "OK",
   });
 */
-
-
- 
 };
 
 // Listen for messages from the main thread
@@ -119,17 +103,15 @@ self.addEventListener("message", async (event: any) => {
     data: `Received data!`,
   });
 
-
-    try {
-      await queryVectorStore(event.data.messages);
-    } catch (e: any) {
-      self.postMessage({
-        type: "error",
-        error: `${e.message}. Make sure you are running Ollama.`,
-      });
-      throw e;
-    }
-  
+  try {
+    await queryVectorStore(event.data.messages);
+  } catch (e: any) {
+    self.postMessage({
+      type: "error",
+      error: `${e.message}. Make sure you are running Ollama.`,
+    });
+    throw e;
+  }
 
   self.postMessage({
     type: "complete",
