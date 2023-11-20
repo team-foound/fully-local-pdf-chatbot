@@ -5,6 +5,8 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 
+//https://github.com/jmorganca/ollama#model-library
+
 export default function ChooseModel(props) {
   const { setModel } = { ...props };
 
